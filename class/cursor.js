@@ -28,17 +28,18 @@ class Cursor {
   }
 
   down() {
-    this.row--;
+    if (this.row < 2) {this.row++}
+    // this.row--;
     // Move cursor down
   }
 
   left() {
-    this.col--;
+    if (this.col > 0) this.col--;
     // Move cursor left
   }
 
   right() {
-    this.col++;
+    if(this.col < 2) this.col++;
     // Move cursor right
   }
 
