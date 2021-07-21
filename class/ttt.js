@@ -18,7 +18,12 @@ class TTT {
     Screen.setGridlines(true);
 
     // Replace this with real commands
-    Screen.addCommand('t', 'test command (remove)', TTT.testCommand);
+    // Screen.addCommand('t', 'test command (remove)', TTT.testCommand);
+    Screen.addCommand('up', 'You press up', Cursor.up);
+    Screen.addCommand('down', 'You press down', Cursor.down);
+    Screen.addCommand('left', 'You press left', Cursor.left);
+    Screen.addCommand('right', 'You press right', Cursor.right);
+    Screen.addCommand('return', 'You press enter', () => {this.grid[0][0] = "X"; Screen.render});
 
     Screen.render();
   }
@@ -32,8 +37,8 @@ class TTT {
     let gridStr = grid.join();
     let count = 0;
 
-    let xResult = ['X,X,X, , , , , , ', 
-                   ' , , ,X,X,X, , , ', 
+    let xResult = ['X,X,X, , , , , , ',
+                   ' , , ,X,X,X, , , ',
                    ' , , , , , ,X,X,X',
                    'X, , ,X, , ,X, , ',
                    ' ,X, , ,X, , ,X, ',
@@ -67,7 +72,7 @@ class TTT {
     // Return 'T' if the game is a tie
     // Return false if the game has not ended
   }
-  
+
   static endGame(winner) {
     if (winner === 'O' || winner === 'X') {
       Screen.setMessage(`Player ${winner} wins!`);
@@ -78,6 +83,10 @@ class TTT {
     }
     Screen.render();
     Screen.quit();
+  }
+
+  static toggle(){
+    this.grid[0][0] = "X"
   }
 
 }
