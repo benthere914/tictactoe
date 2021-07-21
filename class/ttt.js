@@ -29,7 +29,20 @@ class TTT {
   // }
 
   static checkWin(grid) {
-    if ()
+    let count = 0;
+    
+    for (let row = 0; row < grid.length; row++) {
+      for (let col = 0; col < grid[row].length; col++) {
+        if (grid[row][col] === ' ') {
+          count++;
+        }
+      }
+    }
+
+    if (count === 9) {
+      return false;
+    }
+    
     // Return 'X' if player X wins
     // Return 'O' if player O wins
     // Return 'T' if the game is a tie
